@@ -46,7 +46,7 @@ const infoItems = [
 ] as const;
 
 const DOWNLOAD_URL =
-  "https://github.com/maker-or/openwispher/releases/latest/download/Dhavnii-latest.dmg";
+  "https://github.com/maker-or/openwispher/releases/latest/download/Openwispher-latest.dmg";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -326,58 +326,36 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-screen h-screen bg-[#161616] px-6 py-20 sm:px-12 sm:py-32 relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <HalftoneDots
-            width={dimensions.width}
-            height={dimensions.height}
-            colorBack="#8EB1D2"
-            colorFront="#ffffff"
-            originalColors={false}
-            type="gooey"
-            grid="hex"
-            inverted={false}
-            size={0.5}
-            radius={1.25}
-            contrast={0.4}
-            grainMixer={0.2}
-            grainOverlay={0.2}
-            grainSize={0.5}
-            fit="cover"
-          />
-        </div>
-        <div className="mx-auto max-w-7xl relative z-10 h-full flex flex-col justify-center">
-          <h2 className="mb-20 text-center font-serif text-5xl text-white sm:text-6xl lg:text-7xl">
+      <section className="w-screen min-h-screen bg-[#DEEFFF] px-6 py-20 sm:px-12 sm:py-32 relative overflow-hidden flex items-center justify-center">
+        <div className="mx-auto max-w-7xl relative z-10 w-full">
+          <h2 className="mb-16 text-center font-serif text-6xl sm:text-7xl lg:text-8xl text-[#2A343E]">
             Installation
           </h2>
-          <div className="grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-8">
+          <div className="grid gap-6 md:grid-cols-3 md:gap-5">
             {/* Step 1 - Download */}
-            <div className="flex flex-col bg-[#DEEFFF]   p-8 min-h-[500px]">
-              <h3 className="text-2xl sm:text-3xl font-medium text-[#2A343E] mb-6">
+            <div className="flex flex-col bg-[#8AAED0] p-8 min-h-[420px] sm:min-h-[480px]">
+              <h3 className="text-xl sm:text-2xl font-medium text-[#2A343E]/90 leading-tight">
                 Download the application
               </h3>
-              <div className="flex-1 flex items-center justify-center mb-8">
+              <div className="flex-1 flex items-center justify-center">
                 <a
                   href={DOWNLOAD_URL}
                   download
-                  className="flex items-center gap-4 bg-white/90 hover:bg-white transition-colors rounded-full px-8 py-4 shadow-lg hover:shadow-xl"
+                  className="flex items-center gap-4 bg-white hover:bg-white/95 transition-all rounded-full px-10 py-5 shadow-lg hover:shadow-xl hover:scale-105"
+                  aria-label="Download Openwispher"
                 >
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M17.25 10.25C17.25 10.25 17.92 6.32 14.36 3.54C12.01 1.73 8.91 2.17 7.38 3.01C5.88 3.84 3.82 5.65 3.67 9.08C3.52 12.47 5.31 14.05 6.44 14.86"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M12 11V21M12 21L9 18M12 21L15 18"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-[#2A343E]"
+                    aria-hidden="true"
+                  >
+                    <title>Apple Logo</title>
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
-                  <span className="text-lg font-semibold text-[#2A343E]">
+                  <span className="text-xl font-medium text-[#2A343E]">
                     Download
                   </span>
                 </a>
@@ -385,107 +363,52 @@ export default function Home() {
             </div>
 
             {/* Step 2 - Drag and Drop */}
-            <div className="flex flex-col bg-[#DEEFFF]   p-8 min-h-[500px]">
-              <h3 className="text-2xl sm:text-3xl font-medium text-[#2A343E] mb-6">
+            <div className="flex flex-col bg-[#8AAED0] p-8 min-h-[420px] sm:min-h-[480px]">
+              <h3 className="text-xl sm:text-2xl font-medium text-[#2A343E]/90 leading-tight">
                 Drag and drop the openwispher into application
               </h3>
-              <div className="flex-1 flex items-center justify-center">
-                <div className="flex items-center gap-6">
-                  {/* App Icon */}
-                  <svg
-                    width="120"
-                    height="120"
-                    viewBox="0 0 120 120"
-                    className="drop-shadow-xl"
-                  >
-                    <g clipPath="url(#clip0_app)">
-                      <path
-                        d="M34.8519 0H81.3671H85.4943C87.4437 0.558055 90.9934 0.330053 93.1668 0.615135C99.0176 1.3826 104.452 3.32549 108.998 7.19554C115.744 12.8699 119.086 20.3489 119.593 29.0681C119.661 30.2377 119.666 33.0326 120 34.0341V85.8451C119.616 87.0047 119.508 91.5156 119.36 93.0659C117.887 108.541 104.807 119.589 89.4285 119.66C88.693 119.718 87.05 119.793 86.4158 120H44.8528H32.6314C31.6706 119.712 29.0443 119.593 27.8767 119.453C23.8977 118.973 20.2523 118.133 16.6277 116.375C13.5363 114.876 11.7307 113.419 9.32695 111.122C4.05974 106.089 1.53188 100.117 0.636251 92.9563C0.351425 90.6791 0.414284 88.033 0.0345775 85.8004C0.0230516 85.7709 0.0115258 85.7415 0 85.7121V85.4419V34.4732C0.418264 33.898 0.386564 28.8682 0.532501 27.8128C0.665815 26.8488 0.834868 25.5561 1.01376 24.5364C1.48505 21.8399 2.32324 19.2207 3.50502 16.7516C7.97794 7.46957 17.1415 1.59527 27.2174 0.63341C28.8313 0.479343 33.7137 0.443372 34.8519 0Z"
-                        fill="#83EEFD"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_app">
-                        <rect width="120" height="120" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-                  {/* Arrow */}
-                  <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
-                    <path
-                      d="M10 50 Q30 20, 50 50 T90 50"
-                      stroke="#2A343E"
-                      strokeWidth="3"
-                      fill="none"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M75 35 L90 50 L75 65"
-                      stroke="#2A343E"
-                      strokeWidth="3"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-
-                  {/* Applications Folder */}
-                  <svg width="120" height="120" viewBox="0 0 192 192">
-                    <rect
-                      width="192"
-                      height="192"
-                      fill="url(#pattern0_folder)"
-                    />
-                    <defs>
-                      <pattern
-                        id="pattern0_folder"
-                        patternContentUnits="objectBoundingBox"
-                        width="1"
-                        height="1"
-                      >
-                        <rect width="192" height="192" fill="#5B9FD8" />
-                      </pattern>
-                    </defs>
-                    <text
-                      x="96"
-                      y="120"
-                      fontSize="48"
-                      fill="white"
-                      textAnchor="middle"
-                      fontWeight="bold"
-                    >
-                      App
-                    </text>
-                  </svg>
+              <div className="flex-1 flex flex-col items-center justify-center">
+                <div className="relative w-full flex items-center justify-center">
+                  <Image
+                    src="/inta.png"
+                    alt="Drag Openwispher to Applications folder"
+                    width={280}
+                    height={140}
+                    className="object-contain"
+                  />
                 </div>
+                <p className="text-center text-sm text-white/70 mt-4 font-medium">
+                  application
+                </p>
               </div>
-              <p className="text-center text-sm text-[#2A343E]/70 mt-4">
-                application
-              </p>
             </div>
 
             {/* Step 3 - Run Command */}
-            <div className="flex flex-col bg-[#DEEFFF]   p-8 min-h-[500px]">
-              <h3 className="text-2xl sm:text-3xl font-medium text-[#2A343E] mb-6">
+            <div className="flex flex-col bg-[#8AAED0] p-8 min-h-[420px] sm:min-h-[480px]">
+              <h3 className="text-xl sm:text-2xl font-medium text-[#2A343E]/90 leading-tight">
                 Run the following command in the terminal
               </h3>
-              <div className="flex-1 flex flex-col items-center justify-center gap-6">
-                <div className="w-full bg-[#2A343E] rounded-xl p-6 font-mono text-sm text-white break-all">
-                  xattr -cr &quot;/Applications/Openwispher.app&quot;
+              <div className="flex-1 flex flex-col items-center justify-center gap-8">
+                <div className="w-full border-2 border-dashed border-white/60 rounded-lg p-5 bg-white/10">
+                  <code className="font-mono text-sm text-[#2A343E] break-all">
+                    xattr -cr &quot;/Applications/Openwispher.app&quot;
+                  </code>
                 </div>
                 <button
+                  type="button"
                   onClick={handleCopy}
-                  className="flex items-center gap-3 bg-white hover:bg-white/90 transition-all px-6 py-3 rounded-full shadow-lg hover:shadow-xl"
+                  className="flex items-center gap-2 text-[#2A343E] hover:text-[#2A343E]/70 transition-colors"
                 >
                   {copied ? (
                     <>
                       <svg
-                        width="20"
-                        height="20"
+                        width="18"
+                        height="18"
                         viewBox="0 0 24 24"
                         fill="none"
+                        aria-hidden="true"
                       >
+                        <title>Checkmark</title>
                         <path
                           d="M5 13l4 4L19 7"
                           stroke="#22c55e"
@@ -494,34 +417,24 @@ export default function Home() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                      <span className="font-semibold text-green-500">
-                        Copied!
-                      </span>
+                      <span className="font-medium">Copied!</span>
                     </>
                   ) : (
                     <>
                       <svg
-                        width="20"
-                        height="20"
+                        width="18"
+                        height="18"
                         viewBox="0 0 24 24"
                         fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        aria-hidden="true"
                       >
-                        <rect
-                          x="9"
-                          y="9"
-                          width="13"
-                          height="13"
-                          rx="2"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
-                        <path
-                          d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
+                        <title>Copy Icon</title>
+                        <rect x="9" y="9" width="13" height="13" rx="2" />
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
                       </svg>
-                      <span className="font-semibold text-[#2A343E]">copy</span>
+                      <span className="font-medium">copy</span>
                     </>
                   )}
                 </button>
