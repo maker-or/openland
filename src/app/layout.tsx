@@ -1,3 +1,10 @@
+import {
+  GeistPixelCircle,
+  GeistPixelGrid,
+  GeistPixelLine,
+  GeistPixelSquare,
+  GeistPixelTriangle,
+} from "geist/font/pixel";
 import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
@@ -25,7 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${serif.variable} antialiased`}>
+      <body
+        className={`${manrope.variable} ${serif.variable} ${GeistPixelSquare.variable} ${GeistPixelLine.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable}  ${GeistPixelTriangle.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
