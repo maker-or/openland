@@ -2,6 +2,7 @@
 
 import { HalftoneDots } from "@paper-design/shaders-react";
 import Image from "next/image";
+import posthog from "posthog-js";
 import { useState } from "react";
 
 const DOWNLOAD_URL =
@@ -46,6 +47,11 @@ export default function Home() {
           </div>
           <a
             href={DOWNLOAD_URL}
+            onClick={() =>
+              posthog.capture("download_click_hero", {
+                url: DOWNLOAD_URL,
+              })
+            }
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
             aria-label="Download OpenWispher"
           >
@@ -138,7 +144,7 @@ function FeaturesSection() {
     {
       icon: "/heart.svg",
       description:
-        "All the transcriptions and secret keys will be stored locally on device",
+        "Openwispher is free and open source. You can contribute to the project on GitHub.",
     },
   ];
 
@@ -254,6 +260,11 @@ function StepsSection() {
             </div>
             <a
               href={DOWNLOAD_URL}
+              onClick={() =>
+                posthog.capture("download_click_installation", {
+                  url: DOWNLOAD_URL,
+                })
+              }
               className="bg-[#D6E4EE] hover:bg-[#C5D9E8] transition-all duration-200 text-[#2A343E] px-12 py-4 rounded-full text-lg font-medium shadow-lg hover:shadow-xl inline-block text-center"
               aria-label="Download OpenWispher application"
             >
