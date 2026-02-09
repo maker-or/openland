@@ -8,6 +8,32 @@ import { useState } from "react";
 const DOWNLOAD_URL =
   "https://github.com/maker-or/openwispher/releases/latest/download/Openwispher-latest.dmg";
 
+function handleDownloadClick(
+  event: React.MouseEvent<HTMLAnchorElement>,
+  eventName: "download_click_hero" | "download_click_installation",
+) {
+  console.log("[PostHog] Capturing event:", eventName);
+
+  if (
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    event.button !== 0
+  ) {
+    posthog.capture(eventName, { url: DOWNLOAD_URL });
+    return;
+  }
+
+  event.preventDefault();
+
+  posthog.capture(eventName, { url: DOWNLOAD_URL });
+
+  window.setTimeout(() => {
+    window.location.href = DOWNLOAD_URL;
+  }, 300);
+}
+
 export default function Home() {
   return (
     <main className="flex flex-col   bg-[#DEEFFF] text-[#2A343E] min-h-svh w-svw">
@@ -47,10 +73,8 @@ export default function Home() {
           </div>
           <a
             href={DOWNLOAD_URL}
-            onClick={() =>
-              posthog.capture("download_click_hero", {
-                url: DOWNLOAD_URL,
-              })
+            onClick={(event) =>
+              handleDownloadClick(event, "download_click_hero")
             }
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
             aria-label="Download OpenWispher"
@@ -260,10 +284,8 @@ function StepsSection() {
             </div>
             <a
               href={DOWNLOAD_URL}
-              onClick={() =>
-                posthog.capture("download_click_installation", {
-                  url: DOWNLOAD_URL,
-                })
+              onClick={(event) =>
+                handleDownloadClick(event, "download_click_installation")
               }
               className="bg-[#D6E4EE] hover:bg-[#C5D9E8] transition-all duration-200 text-[#2A343E] px-12 py-4 rounded-full text-lg font-medium shadow-lg hover:shadow-xl inline-block text-center"
               aria-label="Download OpenWispher application"
