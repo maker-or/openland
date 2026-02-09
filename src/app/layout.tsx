@@ -8,6 +8,7 @@ import {
 import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${serif.variable} ${GeistPixelSquare.variable} ${GeistPixelLine.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable}  ${GeistPixelTriangle.variable} antialiased`}
       >
+        <Analytics />
         {children}
       </body>
     </html>
