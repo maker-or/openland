@@ -35,6 +35,8 @@ function handleDownloadClick(
 }
 
 export default function Home() {
+  const [downloadStarted, setDownloadStarted] = useState(false);
+
   return (
     <main className="flex flex-col   bg-[#DEEFFF] text-[#2A343E] min-h-svh w-svw">
       <div className="flex items-center justify-center min-h-svh w-svw">
@@ -73,16 +75,18 @@ export default function Home() {
           </div>
           <a
             href={DOWNLOAD_URL}
-            onClick={(event) =>
-              handleDownloadClick(event, "download_click_hero")
-            }
+            onClick={(event) => {
+              setDownloadStarted(true);
+              window.setTimeout(() => setDownloadStarted(false), 2000);
+              handleDownloadClick(event, "download_click_hero");
+            }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
             aria-label="Download OpenWispher"
           >
             <div className="relative mb-2">
               <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 z-0"></div>
               <span className="relative z-10 bg-white text-black px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap shadow-lg block">
-                Download openwispher
+                {downloadStarted ? "Download started" : "Download openwispher"}
               </span>
             </div>
             <Image
@@ -233,6 +237,7 @@ function FeaturesSection() {
 
 function StepsSection() {
   const [copied, setCopied] = useState(false);
+  const [downloadStarted, setDownloadStarted] = useState(false);
 
   const handleCopy = async () => {
     try {
@@ -284,13 +289,15 @@ function StepsSection() {
             </div>
             <a
               href={DOWNLOAD_URL}
-              onClick={(event) =>
-                handleDownloadClick(event, "download_click_installation")
-              }
+              onClick={(event) => {
+                setDownloadStarted(true);
+                window.setTimeout(() => setDownloadStarted(false), 2000);
+                handleDownloadClick(event, "download_click_installation");
+              }}
               className="bg-[#D6E4EE] hover:bg-[#C5D9E8] transition-all duration-200 text-[#2A343E] px-12 py-4 rounded-full text-lg font-medium shadow-lg hover:shadow-xl inline-block text-center"
               aria-label="Download OpenWispher application"
             >
-              Download
+              {downloadStarted ? "Download started" : "Download"}
             </a>
           </div>
         </div>
