@@ -542,6 +542,14 @@ function FooterSection() {
               {link.name}
             </a>
           ))}
+
+          <iframe
+            src="https://github.com/sponsors/maker-or/button"
+            title="Sponsor maker-or"
+            height="32"
+            width="114"
+            style={{ border: 0, borderRadius: 6 }}
+          />
         </div>
       </div>
     </section>
